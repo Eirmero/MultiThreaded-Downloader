@@ -1,0 +1,59 @@
+1.1 大纲
+使用的知识点
+RandomAccessFile类的理解与应用
+HttpURLConnection类的理解与应用
+线程池的理解与运用
+原子类LongAdder的理解与运用
+CountDownLatch类的理解与运用
+ScheduleExecutorService类的理解与运用
+
+希望能通过编写这个下载器加深对多线程的理解
+
+1.2 环境
+普通javase环境即可 不需要额外的jar包
+
+1.3 包名
+constant 存放常量类的包
+core 存放下载器核心类的包
+util 存放工具类的包
+com.MD.Main 主类
+
+1.4 下载器逻辑
+和IO流类似 把文件从C盘拷贝到D盘
+需要域名从服务器上下载文件
+
+2.编写文件下载工具类
+
+2.1 HttpURLConnection
+在jdk8中使用的是HttpURLConnection jdk11开始使用HttpClient
+新版本idea切换java版本 在设置 项目结构中
+
+mac复制文件/文件夹地址快捷方式 command+alt(option)+c
+
+只要报空指针异常 大概率是有对象没赋值/忘了初始化了 回去检查
+
+2.2 编写日志
+有很多地方使用了打印操作 普通的println和catch里面的println不一样
+如果在很多catch里面拼接了很多字会导致新的问题 且报错原因不确切
+通过日志工具类能更方便的打印这些内容
+
+3.下载信息
+文件下载的时候最好能够展示出下载的速度，已下载文件大小等信息，可以每间隔一段时间来获取文件的下载信息，
+比如1s，然后将信息打印到控制台。文件下载是一个独立的线程，还需要再开启一个线程来完成这些操作
+java.util.concurrent.ScheduleExecutorService可以实现这个功能
+
+idea快速补全类名和变量名 alt+enter 或者alt ctrl v选择功能
+
+System.out.println() 会换行 从新的一行开始 前面的会保持不变
+System.out.print("\r") 会回车 覆盖前面的输出 从行首开始输出
+//bug2 没输出 又忘了传参数
+
+#如何使用IO流控制下载的速度
+#数据计算bug 等写完再回来修改
+
+4.文件切割
+使用线程池切割大文件 达到同时下载多个文件块的目的
+
+
+
+
